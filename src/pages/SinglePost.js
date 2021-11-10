@@ -8,10 +8,7 @@ import { addComment } from "../redux/actions/post";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 
-import {
-  deletePost,
- 
-} from "../redux/actions/post";
+import { deletePost } from "../redux/actions/post";
 
 const SinglePost = () => {
   const { posts, user } = useSelector((state) => state);
@@ -46,17 +43,17 @@ const SinglePost = () => {
               <p>{post?.body}</p>
               <span>Date :{new Date(post?.createdAt).toDateString()}</span>
               <Buttons>
-                  {post.name === user.name && (
-                <p
-                  className="delete"
-                  onClick={() =>{
-                     dispatch(deletePost(post._id));
-                     history.push("/");
-                  }}
-                >
-                  <i class="fas fa-trash-alt"></i>
-                </p>
-              )}
+                {post?.name === user.name && (
+                  <p
+                    className="delete"
+                    onClick={() => {
+                      dispatch(deletePost(post._id));
+                      history.push("/");
+                    }}
+                  >
+                    <i class="fas fa-trash-alt"></i>
+                  </p>
+                )}
               </Buttons>
             </Right>
           </UpperDiv>
@@ -185,8 +182,6 @@ const Right = styled.div`
   }
 `;
 
-
-
 const Buttons = styled.div`
   display: flex;
   align-items: center;
@@ -214,7 +209,6 @@ const Buttons = styled.div`
     }
   }
 `;
-
 
 const LowerDiv = styled.div`
   height: 150px;

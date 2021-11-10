@@ -15,24 +15,23 @@ export const createPost = (name, body, avatar) => async (dispatch) => {
     const { data } = await axios.post(url, { name, body, avatar });
     dispatch({ type: "CREATE_POST", payload: data });
   } catch (err) {
-     if (err.response) {
-      let error="";
+    if (err.response) {
+      let error = "";
       // console.log(err.response.data);
       for (const property in err.response.data) {
-        error+=err.response.data[property]+"\n";
+        error += err.response.data[property] + "\n";
       }
 
       alert(error);
     }
-
   }
 };
 
-export const getPost = (id) => async (dispatch,getState) => {
+export const getPost = (id) => async (dispatch, getState) => {
   try {
     const { data } = await axios.get(`${url}/${id}`);
     dispatch({ type: "GET_POST", payload: data });
-    localStorage.setItem("post", JSON.stringify(getState().posts.post));
+    localStorage.setItem("post", JSON.stringify(data));
   } catch (err) {
     err.response && console.log(err.response.data);
   }
@@ -40,9 +39,9 @@ export const getPost = (id) => async (dispatch,getState) => {
 
 export const deletePost = (id) => async (dispatch) => {
   try {
-    const {data}=await axios.delete(`${url}/${id}`);
+    const { data } = await axios.delete(`${url}/${id}`);
     dispatch({ type: "DELETE_POST", payload: id });
-    alert(data.message)
+    alert(data.message);
   } catch (err) {
     err.response && console.log(err.response.data);
   }
@@ -69,7 +68,7 @@ export const unLikePost = (id, email) => async (dispatch) => {
 };
 
 export const addComment =
-  (name, content, avatar, post_id) => async (dispatch,getState) => {
+  (name, content, avatar, post_id) => async (dispatch, getState) => {
     try {
       const { data } = await axios.patch(`${url}/comment/${post_id}`, {
         name,
@@ -78,13 +77,13 @@ export const addComment =
       });
 
       dispatch({ type: "ADD_COMMENT", payload: data });
-       localStorage.setItem("post", JSON.stringify(getState().posts.post));
+      localStorage.setItem("post", JSON.stringify(data));
     } catch (err) {
-       if (err.response) {
-        let error="";
+      if (err.response) {
+        let error = "";
         // console.log(err.response.data);
         for (const property in err.response.data) {
-          error+=err.response.data[property]+"\n";
+          error += err.response.data[property] + "\n";
         }
 
         alert(error);
@@ -92,15 +91,16 @@ export const addComment =
     }
   };
 
-export const deleteComment = (post_id, comment_id) => async (dispatch,getState) => {
-  try {
-    const { data } = await axios.patch(
-      `${url}/comment/${post_id}/${comment_id}`
-    );
+export const deleteComment =
+  (post_id, comment_id) => async (dispatch, getState) => {
+    try {
+      const { data } = await axios.patch(
+        `${url}/comment/${post_id}/${comment_id}`
+      );
 
-    dispatch({ type: "DELETE_COMMENT", payload: data });
-     localStorage.setItem("post", JSON.stringify(getState().posts.post));
-  } catch (err) {
-    err.response && console.log(err.response.data);
-  }
-};
+      dispatch({ type: "DELETE_COMMENT", payload: data });
+      localStorage.setItem("post", JSON.stringify(data));
+    } catch (err) {
+      err.response && console.log(err.response.data);
+    }
+  };
