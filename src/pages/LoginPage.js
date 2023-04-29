@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
 import styled from "styled-components/macro";
+
 import Navbar from "../components/Navbar";
 import { login } from "../redux/actions/user";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
   const initialData = {
     email: "",
     password: "",

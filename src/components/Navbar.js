@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { useDispatch, useSelector } from "react-redux";
+
 import { logout } from "../redux/actions/user";
 
 const Navbar = () => {
@@ -10,7 +11,7 @@ const Navbar = () => {
   return (
     <Container className="navbar">
       <Main>
-        <Left onClick={()=>dispatch(logout())}>
+        <Left onClick={() => dispatch(logout())}>
           <h1>
             <i class="fas fa-code"></i>
             The Social Media App
@@ -72,7 +73,7 @@ const Left = styled.div`
     font-size: 2.5rem;
     font-weight: 400;
     align-items: center;
-    cursor:pointer;
+    cursor: pointer;
 
     i {
       margin-right: 10px;

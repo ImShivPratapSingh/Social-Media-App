@@ -1,14 +1,12 @@
 import styled from "styled-components/macro";
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+import { useHistory } from "react-router";
+
 import Navbar from "../components/Navbar";
 import Comment from "../components/Comment";
 import avatars from "../avatar";
-import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
-import { addComment } from "../redux/actions/post";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
-
-import { deletePost } from "../redux/actions/post";
+import { deletePost, addComment } from "../redux/actions/post";
 
 const SinglePost = () => {
   const { posts, user } = useSelector((state) => state);

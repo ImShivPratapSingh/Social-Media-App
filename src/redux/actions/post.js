@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "https://social-media802.herokuapp.com/api/posts";
+const url = "https://repulsive-teal-swallow.cyclic.app/api/posts";
 
 export const getPosts = () => async (dispatch) => {
   try {

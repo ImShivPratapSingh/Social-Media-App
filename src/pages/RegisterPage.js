@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
+
 import Navbar from "../components/Navbar";
 import { register } from "../redux/actions/user";
-import { useHistory } from "react-router";
 
 const RegisterPage = () => {
   const dispatch = useDispatch();

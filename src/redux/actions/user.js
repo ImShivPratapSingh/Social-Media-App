@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "https://social-media802.herokuapp.com/api/user";
+const url = "https://repulsive-teal-swallow.cyclic.app/api/user";
 
 export const register = (userData) => async (dispatch, getState) => {
   try {
@@ -11,10 +11,10 @@ export const register = (userData) => async (dispatch, getState) => {
     data && window.location.replace("/");
   } catch (err) {
     if (err.response) {
-      let error="";
+      let error = "";
       // console.log(err.response.data);
       for (const property in err.response.data) {
-        error+=err.response.data[property]+"\n";
+        error += err.response.data[property] + "\n";
       }
 
       alert(error);
@@ -30,10 +30,10 @@ export const login = (userData) => async (dispatch, getState) => {
     data && window.location.replace("/");
   } catch (err) {
     if (err.response) {
-      let error="";
+      let error = "";
       // console.log(err.response.data);
       for (const property in err.response.data) {
-        error+=err.response.data[property]+"\n";
+        error += err.response.data[property] + "\n";
       }
 
       alert(error);

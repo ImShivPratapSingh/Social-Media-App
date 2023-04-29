@@ -7,7 +7,7 @@ const Background = () => {
       <Main>
         <h1>The Social Media App</h1>
         <p>
-          A fun place for developers and friends to share ideas on technology .
+          A fun place for developers and friends to share ideas on technology.
           Plenty of cool discussions!
         </p>
         <Buttons>

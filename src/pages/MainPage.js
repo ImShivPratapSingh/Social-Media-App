@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
+
 import Navbar from "../components/Navbar";
 import Post from "../components/Post";
 import { createPost, getPosts } from "../redux/actions/post";

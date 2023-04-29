@@ -1,6 +1,6 @@
-import userEvent from "@testing-library/user-event";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components/macro";
+
 import avatars from "../avatar";
 import { deleteComment } from "../redux/actions/post";
 

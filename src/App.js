@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import { getPosts } from "./redux/actions/post";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import MainPage from "./pages/MainPage";

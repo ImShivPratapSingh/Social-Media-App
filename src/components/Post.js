@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import styled from "styled-components/macro";
+
 import avatars from "../avatar";
 import {
   deletePost,
@@ -10,7 +11,7 @@ import {
 } from "../redux/actions/post";
 
 function Post({ data }) {
-  const { user, posts } = useSelector((state) => state);
+  const { user } = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -21,7 +22,7 @@ function Post({ data }) {
   };
 
   return (
-    <Container className="post" >
+    <Container className="post">
       <Left>
         <div>
           <img src={`../images/${avatars[data.avatar]}`} alt="images" />
@@ -29,7 +30,7 @@ function Post({ data }) {
         <p>{data.name}</p>
       </Left>
       <Right>
-        <p  onClick={handleClick}>{data.body}</p>
+        <p onClick={handleClick}>{data.body}</p>
         <span>Date : {new Date(data.createdAt).toDateString()}</span>
         <Buttons>
           <p
